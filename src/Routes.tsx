@@ -1,14 +1,19 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 
-import Home from './pages/Home'
-import Product from './pages/Product'
+import CountryTable from './pages/country/CountryTable'
+import LandingPage from './pages/landingPage/LandingPage'
+import NavBar from './pages/navbar/NavBar'
 
 const Routes = () => (
-  <Switch>
-    <Route exact path="/" component={Home} />
-    <Route exact path="/products/:id" component={Product} />
-  </Switch>
+  <div>
+    <NavBar />
+    <Switch>
+      <Route exact path="/country" component={CountryTable} />
+      <Route exact path="/home" component={LandingPage} />
+      {/* <Route exact path="/products/:id" component={Product} /> */}
+    </Switch>
+  </div>
 )
 
 export default Routes

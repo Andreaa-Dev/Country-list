@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux'
-
-import product from './product'
+import country from './country'
+import favorite from './favorite'
 
 const createRootReducer = () =>
   combineReducers({
-    product,
+    countryState: country,
+    favoriteState: favorite,
   })
 
 export default createRootReducer
