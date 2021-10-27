@@ -12,6 +12,7 @@ export const columns: ColumnType[] = [
     format: (value) => (
       <img src={value as string} width="80px" height="50px" alt="error" />
     ),
+    // sortable: false,
   },
   { id: 'name', label: 'Name', minWidth: 100 },
   {

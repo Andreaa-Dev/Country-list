@@ -51,10 +51,9 @@ function CountryFavorite() {
         <CardActionArea>
           <CardMedia
             component="img"
-            alt="Contemplative Reptile"
+            alt={country.name}
             height="140"
             image={country.flag}
-            title="Contemplative Reptile"
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
