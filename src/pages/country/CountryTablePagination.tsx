@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { TablePagination } from '@material-ui/core'
+
 import { CountryType } from '../../misc/types'
+import ThemeContext from '../../context/context'
 
 // Tips: hover to handleChangePage to see the type.
 type PropsType = {
   data: CountryType[]
   rowsPerPage: number
   page: number
-  handleChangePage: (newPage: any) => void
+  handleChangePage: (event: unknown, newPage: number) => void
   handleChangeRowsPerPage: (event: any) => void
 }
 
@@ -18,6 +20,8 @@ function CountryTablePagination({
   handleChangePage,
   handleChangeRowsPerPage,
 }: PropsType) {
+  const { theme } = useContext(ThemeContext)
+
   return (
     <div>
       <TablePagination
@@ -28,6 +32,10 @@ function CountryTablePagination({
         page={page}
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
+        style={{
+          backgroundColor: theme.foreground,
+          color: theme.textColor,
+        }}
       />
     </div>
   )

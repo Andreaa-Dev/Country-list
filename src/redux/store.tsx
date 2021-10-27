@@ -7,6 +7,8 @@ import createRootReducer from './reducers'
 const initState: AppState = {
   countryState: {
     country: [],
+    search: [],
+    eachCountry: [],
   },
   favoriteState: {
     favoriteList: [],

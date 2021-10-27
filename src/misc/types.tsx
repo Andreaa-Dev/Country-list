@@ -11,9 +11,48 @@ export type ColumnType = {
   format?: (value: string | LanguageType[]) => JSX.Element
   minWidth?: number
   align?: string
+  sortable?: boolean
 }
 
 export type LanguageType = {
+  name: string
+}
+
+export type EachCountryType = {
+  flags: {
+    svg: string
+  }
+  name: {
+    common: string
+  }
+  capital: {
+    name: string
+  }[]
+  region: string
+  subregion: string
+  latlng: {
+    direction: number
+  }[]
+  population: number
+  independent: boolean
+  languages: {
+    [key: string]: { name: string }
+  }
+  currencies: {
+    [key: string]: { name: string; symbol: string }
+  }
+  timezones: {
+    timezone: string
+  }[]
+  maps: {
+    googleMaps: string
+  }
+  coatOfArms: {
+    png: string
+  }
+}
+
+export type ParamsType = {
   name: string
 }
 
@@ -25,9 +64,12 @@ export type CountryType = {
   region: string
   border: number
 }
-
+export type UserInputType = {
+  userInput: string
+}
 // Action types
 export const FetchCountry = 'fetch_country'
+export const FetchEachCountry = 'fet'
 export const AddFavorite = 'add_favorite'
 export const RemoveFavorite = 'remove_favorite'
 export const SearchCountry = 'search_country'
@@ -37,6 +79,13 @@ export type FetchAction = {
   type: typeof FetchCountry
   payload: {
     country: CountryType[]
+  }
+}
+
+export type FetchEachCountryAction = {
+  type: typeof FetchEachCountry
+  payload: {
+    eachCountry: EachCountryType[]
   }
 }
 
@@ -66,18 +115,17 @@ export type AllAction =
   | AddFavoriteAction
   | RemoveFavoriteAction
   | SearchCountryAction
+  | FetchEachCountryAction
 
 export type CountryState = {
   country: CountryType[]
+  search: CountryType[]
+  eachCountry: EachCountryType[]
 }
 
 export type FavoriteState = {
   favoriteList: string[]
 }
-
-// export const SearchState = {
-//   inputList: string[]
-// }
 
 // update state because App is global - only 1
 export type AppState = {

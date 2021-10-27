@@ -15,6 +15,12 @@ export const columns: ColumnType[] = [
   },
   { id: 'name', label: 'Name', minWidth: 100 },
   {
+    id: 'region',
+    label: 'Region',
+    minWidth: 170,
+    align: 'right',
+  },
+  {
     id: 'population',
     label: 'Population',
     minWidth: 170,
@@ -37,21 +43,17 @@ export const columns: ColumnType[] = [
     ),
   },
   {
-    id: 'region',
-    label: 'Region',
-    minWidth: 170,
-    align: 'right',
-  },
-  {
     id: 'others',
     label: 'Favorite',
     minWidth: 170,
     align: 'right',
+    sortable: false,
   },
   {
     id: 'details',
-    label: 'Details',
+    label: '',
     minWidth: 170,
     align: 'right',
+    sortable: false,
   },
 ]

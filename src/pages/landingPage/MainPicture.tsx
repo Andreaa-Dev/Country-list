@@ -1,6 +1,6 @@
-import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon'
-import React from 'react'
+import React, { useContext } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
+import ThemeContext from '../../context/context'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -8,11 +8,29 @@ const useStyles = makeStyles((theme) => ({
     width: 750,
     backgroundColor: 'white',
   },
-  animatedSpin: {
-    // animation: `$spin 1s ${theme.transitions.easing.easeInOut}`,
-    animationName: 'spin',
+
+  animatedEnter: {
+    animation: `$enter 3s ${theme.transitions.easing.easeOut}`,
+  },
+  '@keyframes enter': {
+    '0%': {
+      opacity: 0,
+      transform: 'translateX(200%)',
+    },
+    '100%': {
+      opacity: 1,
+      transform: 'translateX(0%)',
+    },
+  },
+
+  animatedEarth: {
+    animationName: '$spin',
     animationIterationCount: 'infinite',
     animationTimingFunction: 'linear',
+    animationDuration: '10s',
+    animationDelay: '3s',
+    transformOrigin: 'center',
+    transformBox: 'fill-box',
   },
   '@keyframes spin': {
     '0%': {
@@ -22,22 +40,59 @@ const useStyles = makeStyles((theme) => ({
       transform: 'rotate(360deg)',
     },
   },
+
+  animatedClouds: {
+    animationName: `$cloud`,
+    animationDuration: '2s',
+    animationDelay: '3s',
+    transformOrigin: 'center',
+    animationIterationCount: 'infinite',
+    animationTimingFunction: 'linear',
+  },
+  '@keyframes cloud': {
+    '0%': {
+      transform: 'scale(1,1)',
+    },
+    '100%': {
+      transform: 'scale(1.1,1.1)',
+    },
+  },
+
+  animatedCruise: {
+    animationDelay: '3s',
+    animation: `$cruise 3s ${theme.transitions.easing.easeInOut}`,
+    animationIterationCount: 'infinite',
+    animationTimingFunction: 'linear',
+  },
+  '@keyframes cruise ': {
+    '0%': {
+      transform: 'translateX(0%)',
+    },
+    '100%': {
+      transform: 'translateX(10%)',
+    },
+  },
 }))
 
-function MainPicture(props: SvgIconProps) {
+function MainPicture() {
+  const { theme } = useContext(ThemeContext)
   const classes = useStyles()
 
   return (
     <div>
-      <SvgIcon
+      <svg
         className={classes.root}
         width="900"
         height="555"
         viewBox="0 0 900 555"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        style={{
+          backgroundColor: theme.foreground,
+          color: theme.textColor,
+        }}
       >
-        <g id="men and world">
+        <g id="men and world" className={classes.animatedEnter}>
           <g id="Background">
             <path
               id="Vector"
@@ -217,7 +272,7 @@ function MainPicture(props: SvgIconProps) {
               fill="black"
             />
           </g>
-          <g id="World" className={classes.animatedSpin}>
+          <g id="World" className={classes.animatedEarth}>
             <path
               id="Vector_33"
               d="M590.992 443C659.471 443 714.984 387.707 714.984 319.5C714.984 251.293 659.471 196 590.992 196C522.513 196 467 251.293 467 319.5C467 387.707 522.513 443 590.992 443Z"
@@ -1937,7 +1992,7 @@ function MainPicture(props: SvgIconProps) {
               stroke-linejoin="round"
             />
           </g>
-          <g id="Cruise">
+          <g id="Cruise" className={classes.animatedCruise}>
             <path
               id="Vector_318"
               d="M554.718 373.472H548.862V385.073H554.718V373.472Z"
@@ -2351,7 +2406,7 @@ function MainPicture(props: SvgIconProps) {
               stroke-linejoin="round"
             />
           </g>
-          <g id="Clouds">
+          <g id="Clouds" className={classes.animatedClouds}>
             <path
               id="Vector_387"
               d="M709.374 160.548C714.634 157.165 721.191 155.587 727.75 156.125C734.308 156.664 740.391 159.28 744.798 163.457C748.122 162.469 751.717 162.353 755.118 163.125C758.52 163.897 761.572 165.521 763.88 167.787C766.189 170.053 767.647 172.857 768.067 175.837C768.488 178.817 767.85 181.836 766.238 184.504C770.24 187.655 772.703 191.976 773.138 196.605C773.572 201.235 771.946 205.835 768.583 209.489C765.22 213.142 760.367 215.582 754.989 216.323C749.612 217.064 744.105 216.05 739.564 213.485L692.173 186.642C688.474 184.545 685.841 181.334 684.803 177.652C683.764 173.97 684.396 170.09 686.572 166.789C688.748 163.487 692.308 161.01 696.537 159.852C700.765 158.695 705.351 158.943 709.374 160.548V160.548Z"
@@ -3210,7 +3265,7 @@ function MainPicture(props: SvgIconProps) {
             </g>
           </g>
         </g>
-      </SvgIcon>
+      </svg>
     </div>
   )
 }

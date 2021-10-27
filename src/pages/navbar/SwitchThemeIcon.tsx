@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Switch from '@material-ui/core/Switch'
+import ThemeContext from '../../context/context'
 
-export default function SwitchTheme() {
+export default function SwitchThemeIcon() {
   const [state, setState] = React.useState({
     checkedA: true,
     checkedB: true,
@@ -10,6 +11,7 @@ export default function SwitchTheme() {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setState({ ...state, [event.target.name]: event.target.checked })
   }
+  const { switchTheme } = useContext(ThemeContext)
 
   return (
     <div>
@@ -18,6 +20,7 @@ export default function SwitchTheme() {
         onChange={handleChange}
         name="checkedA"
         inputProps={{ 'aria-label': 'secondary checkbox' }}
+        onClick={switchTheme}
       />
     </div>
   )

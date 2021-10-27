@@ -1,10 +1,27 @@
-import React from 'react'
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos'
+import React, { useContext } from 'react'
+import { Link } from 'react-router-dom'
 
-function MoreInformation() {
+import ThemeContext from '../../context/context'
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos'
+import { CountryType } from '../../misc/types'
+
+type PropType = {
+  row: CountryType
+}
+
+function MoreInformation({ row }: PropType) {
+  const { theme } = useContext(ThemeContext)
+
   return (
     <div>
-      <ArrowForwardIosIcon />
+      <Link to={`/country/${row.name}`}>
+        <ArrowForwardIosIcon
+          style={{
+            color: theme.buttonColor,
+            // color: theme.buttonText,
+          }}
+        />
+      </Link>
     </div>
   )
 }
