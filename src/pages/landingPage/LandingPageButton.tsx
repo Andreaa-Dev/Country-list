@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 )
 
-export default function ButtonLandingPage() {
+export default function LandingPageButton() {
   const classes = useStyles()
   const { theme } = useContext(ThemeContext)
 

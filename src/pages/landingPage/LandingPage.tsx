@@ -4,7 +4,7 @@ import Box from '@material-ui/core/Box'
 import { makeStyles } from '@material-ui/core/styles'
 
 import MainPicture from './MainPicture'
-import ButtonLandingPage from './ButtonLandingPage'
+import LandingPageButton from './LandingPageButton'
 import ThemeContext from '../../context/context'
 
 const useStyles = makeStyles((theme) => ({
@@ -56,7 +56,7 @@ function LandingPage() {
           The love of one's country is a splendid thing. But why should love
           stop at the border?
         </Typography>
-        <ButtonLandingPage />
+        <LandingPageButton />
       </Box>
     </Box>
   )
