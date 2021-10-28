@@ -17,8 +17,9 @@
 
 ## The sample
 
-# Landing page with animation
+Landing page with
+![landingPage]<img src = "images/landingPage.png">
 
-# Country page with country list and page function
+Country page with country list and page function
 
-# Each country page
+Each country page
