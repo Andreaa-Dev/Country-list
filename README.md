@@ -18,7 +18,7 @@
 ## The sample
 
 Landing page with
-![landingPage]<img src = "images/landingPage.png">
+![landingPage]<img src = "src/images/landingPage.png">
 
 Country page with country list and page function
 
