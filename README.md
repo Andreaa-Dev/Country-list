@@ -17,9 +17,11 @@
 
 ## The sample
 
-Landing page with
-![landingPage]<img src = "src/images/landingPage.png">
+Landing page with animation
+<img src = "src/images/landingPage.png">
 
 Country page with country list and page function
+<img src = "src/images/allCountries.png">
 
 Each country page
+<img src = "src/images/eachCountry.png">
