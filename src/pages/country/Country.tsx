@@ -81,6 +81,10 @@ export default function Country() {
   }, [params, dispatch])
   console.log(eachCountry, 'e')
 
+  if (!eachCountry) {
+    return <></>
+  }
+
   let countryStatus = ''
   if (eachCountry.independent === false) {
     countryStatus = 'not'
