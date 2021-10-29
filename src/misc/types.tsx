@@ -69,7 +69,7 @@ export type UserInputType = {
 }
 // Action types
 export const FetchCountry = 'fetch_country'
-export const FetchEachCountry = 'fet'
+export const FetchEachCountry = 'fetch_eachCountry'
 export const AddFavorite = 'add_favorite'
 export const RemoveFavorite = 'remove_favorite'
 export const SearchCountry = 'search_country'

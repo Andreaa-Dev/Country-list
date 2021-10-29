@@ -5,7 +5,7 @@ import { CountryType } from '../../misc/types'
 import ThemeContext from '../../context/context'
 
 // Tips: hover to handleChangePage to see the type.
-type PropsType = {
+type CountryTablePaginationPropsType = {
   data: CountryType[]
   rowsPerPage: number
   page: number
@@ -19,7 +19,7 @@ function CountryTablePagination({
   page,
   handleChangePage,
   handleChangeRowsPerPage,
-}: PropsType) {
+}: CountryTablePaginationPropsType) {
   const { theme } = useContext(ThemeContext)
 
   return (

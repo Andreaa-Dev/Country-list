@@ -79,6 +79,7 @@ export default function Country() {
   useEffect(() => {
     dispatch(fetchEachCountryData(params.name))
   }, [params, dispatch])
+  console.log(eachCountry, 'e')
 
   let countryStatus = ''
   if (eachCountry.independent === false) {
