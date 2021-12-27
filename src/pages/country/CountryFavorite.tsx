@@ -43,8 +43,6 @@ function CountryFavorite() {
     favoriteList.includes(item.name)
   )
 
-  console.log(filterResult, 'e')
-
   const result = filterResult.map((country) => {
     return (
       <Card className={classes.card}>

@@ -79,7 +79,6 @@ export default function Country() {
   useEffect(() => {
     dispatch(fetchEachCountryData(params.name))
   }, [params, dispatch])
-  console.log(eachCountry, 'e')
 
   if (!eachCountry) {
     return <></>
@@ -262,7 +261,6 @@ export default function Country() {
           <Typography paragraph>
             <span className={classes.inlineText}>Currencies:</span>
             {Object.values(eachCountry.currencies).map((item) => {
-              console.log(Object.values(eachCountry.currencies), 'va')
               return (
                 <li>
                   {item.name} ({item.symbol})
